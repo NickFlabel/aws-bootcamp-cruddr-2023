@@ -12,6 +12,7 @@ from services.message_groups import *
 from services.messages import *
 from services.create_message import *
 from services.show_activity import *
+from services.notification_activities import *
 
 app = Flask(__name__)
 frontend = os.getenv('FRONTEND_URL')
@@ -22,7 +23,9 @@ cors = CORS(
   resources={r"/api/*": {"origins": origins}},
   expose_headers="location,link",
   allow_headers="content-type,if-modified-since",
-  methods="OPTIONS,GET,HEAD,POST"
+  methods="OPTIONS,GET,HEAD,POST",
+  automatic_options=True,
+  intercept_exceptions=False
 )
 
 @app.route("/api/message_groups", methods=['GET'])
@@ -59,6 +62,11 @@ def data_create_message():
   else:
     return model['data'], 200
   return
+
+@app.route("/api/activities/notifications", methods=['GET'])
+def notifications():
+  data = NotificationActivities.run()
+  return data, 200
 
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
