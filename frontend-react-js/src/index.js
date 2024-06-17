@@ -11,7 +11,7 @@ const backendUrlPattern = new RegExp(`^${process.env.REACT_APP_BACKEND_URL}.*$`)
 
 // const sdk = new HoneycombWebSDK({
 //   debug: true,
-//   apiKey: 'hcaik_01j0jwwwvay9by1e2d8129977sjkbahqfwfha3wy61wp7ykavxgq8da70d',
+//   apiKey: process.env.HONEYCOMB_INGEST_KEY,
 //   serviceName: 'frontend',
 //   instrumentations: [getWebAutoInstrumentations()],
 //   webVitalsInstrumentationConfig: {
