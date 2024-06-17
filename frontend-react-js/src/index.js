@@ -3,6 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { HoneycombWebSDK } from '@honeycombio/opentelemetry-web'
+import { getWebAutoInstrumentations } from '@opentelemetry/auto-instrumentations-web'
+import { registerInstrumentations } from '@opentelemetry/instrumentation';
+
+const backendUrlPattern = new RegExp(`^${process.env.REACT_APP_BACKEND_URL}.*$`);
+
+// const sdk = new HoneycombWebSDK({
+//   debug: true,
+//   apiKey: 'hcaik_01j0jwwwvay9by1e2d8129977sjkbahqfwfha3wy61wp7ykavxgq8da70d',
+//   serviceName: 'frontend',
+//   instrumentations: [getWebAutoInstrumentations()],
+//   webVitalsInstrumentationConfig: {
+//     vitalsToTrack: []
+//   }
+// })
+// sdk.start()
+ 
 
 const el_main = document.getElementsByTagName('main')[0];
 const root = ReactDOM.createRoot(el_main);

@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@honeycombio/opentelemetry-web": "^0.3.0",
+    "@opentelemetry/auto-instrumentations-web": "^0.40.0",
+    "@opentelemetry/instrumentation-long-task": "^0.39.0",
+    "@opentelemetry/instrumentation-user-interaction": "^0.39.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
